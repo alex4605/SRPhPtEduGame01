@@ -8,12 +8,12 @@ import {
   SlowMovingItem,
 } from '../types/game';
 
-import pharmacyWarmImg from '../assets/images/pharmacy_interior_warm_1795484455557.jpg';
-import pharmacyHardImg from '../assets/images/pharmacy_interior_hard_1795484456100.jpg';
-import patientWarmImg from '../assets/images/character_patient_warm_1795436366350.jpg';
-import patient2WarmImg from '../assets/images/character_patient2_warm_1795439525595.jpg';
-import uncleHardImg from '../assets/images/character_uncle_hard_1795436366588.jpg';
-import patient2HardImg from '../assets/images/character_patient2_hard_1795439525607.jpg';
+import pharmacyWarmImg from '../assets/images/pharmacy_interior_warm.webp';
+import pharmacyHardImg from '../assets/images/pharmacy_interior_hard.webp';
+import patientWarmImg from '../assets/images/character_patient_warm.webp';
+import patient2WarmImg from '../assets/images/character_patient2_warm.webp';
+import uncleHardImg from '../assets/images/character_uncle_hard.webp';
+import patient2HardImg from '../assets/images/character_patient2_hard.webp';
 
 export const GAME_ASSETS = {
   pharmacyWarm: pharmacyWarmImg,

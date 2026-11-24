@@ -48,6 +48,7 @@ import {
   StatDelta,
   UnlockedAlmanac,
 } from './types/game';
+import { useIdleReturn } from './hooks/useIdleReturn';
 import {
   buildExactTray,
   DEFAULT_ALMANAC,
@@ -55,6 +56,8 @@ import {
   saveAlmanac,
   validateTrayAgainstRx,
 } from './utils/pharmacy';
+
+const IDLE_RETURN_MS = 120_000;
 
 function resolveActivePatient(
   mode: GameMode,
@@ -386,6 +389,13 @@ export default function App() {
     setScreen('MENU');
     window.scrollTo(0, 0);
   }, []);
+
+  // Shared waiting-room tablet: return to the title screen after 2 idle minutes
+  // whenever no countdown is running (ending screen, paused game, menus left open).
+  useIdleReturn(screen !== 'MENU' && (!timerActive || isPaused), IDLE_RETURN_MS, () => {
+    setAlmanacOpen(false);
+    handleReturnMenu();
+  });
 
   const handleRequestReturnMenu = useCallback(() => {
     setConfirmReturnOpen(true);
