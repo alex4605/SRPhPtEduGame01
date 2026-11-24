@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Noto Serif TC', Georgia, serif;
+    --font-sans: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+    /* Normal Mode: Warm Taiwanese community pharmacy morning palette (60-30-10) */
+    --bg-canvas: #F9F6F0;
+    --bg-surface: #FFFFFF;
+    --bg-muted: #EFEAE0;
+    --bg-paper: #FDFBF7;
+    --border-subtle: #E1D9C9;
+    --border-strong: #CFC5B2;
+    --text-primary: #1B252F;
+    --text-secondary: #4B5966;
+    --accent-primary: #1B6E59;
+    --accent-primary-hover: #145746;
+    --accent-soft: #E7F4EF;
+    --status-warn: #A85008;
+    --status-danger: #C03835;
+    --shelf-frame: #E5DED0;
+    --shelf-ledge: #D5CCB9;
+    --shelf-shadow: #B5AA95;
+  }
+
+  [data-theme="hard"] {
+    /* Hard Mode: Rainy evening fluorescent pharmacy realism (60-30-10) */
+    --bg-canvas: #EAEEF3;
+    --bg-surface: #FAFBFD;
+    --bg-muted: #DFE5EE;
+    --bg-paper: #F4F7FB;
+    --border-subtle: #C7D1DF;
+    --border-strong: #B0BDCE;
+    --text-primary: #161E28;
+    --text-secondary: #435061;
+    --accent-primary: #B44535;
+    --accent-primary-hover: #943628;
+    --accent-soft: #F9E9E6;
+    --status-warn: #9A5B06;
+    --status-danger: #B41C1C;
+    --shelf-frame: #DDE3EC;
+    --shelf-ledge: #CCD5E2;
+    --shelf-shadow: #A3B1C4;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 220ms cubic-bezier(0.16, 1, 0.3, 1),
+      color 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Tactile metallic silver foil texture for blister pack pockets */
+.blister-foil {
+  background: linear-gradient(
+    135deg,
+    #F8FAFC 0%,
+    #E6ECF3 42%,
+    #F1F5F9 62%,
+    #D6DFEA 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 2px rgba(15, 23, 42, 0.08),
+    0 1px 2px rgba(15, 23, 42, 0.08);
+}
+
+/* Receipt / medicine bag dashed perforation divider */
+.receipt-divider {
+  border-top: 1.5px dashed var(--border-strong);
+}
+
+@keyframes float-delta {
+  0% {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+}
+
+.animate-float-delta {
+  animation: float-delta 1.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes swipe-scan {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(220%);
+  }
+}
+
+.animate-swipe-scan {
+  animation: swipe-scan 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes sheet-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-sheet-up {
+  animation: sheet-up 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes stage-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-stage-fade {
+  animation: stage-fade 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-delta,
+  .animate-swipe-scan,
+  .animate-sheet-up,
+  .animate-stage-fade {
+    animation: none;
+  }
+}
