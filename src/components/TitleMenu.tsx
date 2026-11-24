@@ -96,7 +96,7 @@ export function TitleMenu({ almanac, onStartMode, onOpenAlmanac }: TitleMenuProp
                 </h1>
               </div>
 
-              <p className="text-[15px] text-[var(--text-secondary)] leading-relaxed">
+              <p className="text-[17px] text-[var(--text-secondary)] leading-relaxed">
                 走進台灣街角社區藥局的櫃檯後方當一天藥師，從開門叫貨、在長得很像的藥盒間細心數藥，到多問兩句替鄰居把關用藥安全。
               </p>
 

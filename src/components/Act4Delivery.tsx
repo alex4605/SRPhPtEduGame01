@@ -146,7 +146,7 @@ export const Act4Delivery = memo(function Act4Delivery({
             >
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <div className="font-bold text-[15px] sm:text-base text-[var(--text-primary)]">
+                  <div className="font-bold text-[17px] sm:text-base text-[var(--text-primary)]">
                     選項 A｜當面再仔細核對一次
                   </div>
                   <p className="mt-1 text-sm text-[var(--text-secondary)] leading-relaxed">
@@ -164,7 +164,7 @@ export const Act4Delivery = memo(function Act4Delivery({
             >
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <div className="font-bold text-[15px] sm:text-base">
+                  <div className="font-bold text-[17px] sm:text-base">
                     選項 B｜直接刷卡給藥（淨利 +{netProfit}）
                   </div>
                   <p className="mt-1 text-sm text-white/85 leading-relaxed">

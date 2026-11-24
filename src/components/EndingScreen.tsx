@@ -108,7 +108,7 @@ export function EndingScreen({
                   )}
                 </div>
 
-                <p className="text-[15px] text-[var(--text-secondary)] leading-relaxed">
+                <p className="text-[17px] text-[var(--text-secondary)] leading-relaxed">
                   {flags.endingReason ?? summary}
                 </p>
 
@@ -304,7 +304,7 @@ export function EndingScreen({
             <Info className="w-4 h-4 shrink-0" aria-hidden="true" />
             <h2 className="text-base sm:text-lg font-bold">{ending.knowledgeTitle}</h2>
           </div>
-          <p className="text-[15px] text-[var(--text-primary)]/90 leading-[1.75]">
+          <p className="text-[17px] text-[var(--text-primary)]/90 leading-[1.75]">
             {ending.knowledgeBody}
           </p>
           <p className="text-xs text-[var(--text-secondary)] pt-2.5 receipt-divider">

@@ -48,7 +48,7 @@ export const MedicineBoxCard = memo(function MedicineBoxCard({
       <div className={compact ? 'px-2.5 py-2' : 'p-3'}>
         <div className="flex items-start justify-between gap-1.5">
           <span
-            className={`text-[15px] font-bold leading-tight truncate ${
+            className={`text-[17px] font-bold leading-tight truncate ${
               outOfStock ? 'text-[#6B7280] line-through' : 'text-[#1B252F]'
             }`}
           >
@@ -67,7 +67,7 @@ export const MedicineBoxCard = memo(function MedicineBoxCard({
           style={outOfStock ? undefined : { backgroundColor: drug.bandAccent }}
         >
           <span
-            className={`font-mono-num text-sm sm:text-[15px] font-bold ${
+            className={`font-mono-num text-sm sm:text-[17px] font-bold ${
               outOfStock ? 'text-[#6B7280]' : 'text-[#161E28]'
             }`}
           >

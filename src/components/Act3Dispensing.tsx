@@ -296,7 +296,7 @@ export const Act3Dispensing = memo(function Act3Dispensing({
                   onClick={() => openDrawer(drug.id)}
                   className="min-w-0 flex-1 text-left py-1 hover:opacity-80"
                 >
-                  <span className="text-[15px] font-bold text-[var(--text-primary)]">
+                  <span className="text-[17px] font-bold text-[var(--text-primary)]">
                     {drug.name}{' '}
                     <span className="font-mono-num text-[var(--accent-primary)]">
                       {drug.strength}
@@ -407,7 +407,7 @@ export const Act3Dispensing = memo(function Act3Dispensing({
                 {prescriptionItems.map((item) => (
                   <div
                     key={item.targetDrugId}
-                    className="inline-flex items-baseline gap-1.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-2.5 py-1 text-xs sm:text-[13px]"
+                    className="inline-flex items-baseline gap-1.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-2.5 py-1 text-xs sm:text-[15px]"
                   >
                     <span className="font-bold text-[var(--text-primary)]">
                       {item.displayName}{' '}

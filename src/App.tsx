@@ -855,7 +855,7 @@ export default function App() {
                       className="w-full h-full object-cover"
                     />
                     <div className="pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-black/65 to-transparent" />
-                    <span className="absolute bottom-2 left-3 text-[11px] font-medium text-white/95">
+                    <span className="absolute bottom-2 left-3 text-[13px] font-medium text-white/95">
                       {mode === 'normal' ? '早班調劑櫃檯內' : '雨天傍晚調劑櫃檯內'}
                     </span>
                   </div>
@@ -884,7 +884,7 @@ export default function App() {
                     </div>
 
                     <p
-                      className={`text-sm sm:text-[15px] text-[var(--text-primary)] leading-relaxed pt-3 receipt-divider ${
+                      className={`text-sm sm:text-[17px] text-[var(--text-primary)] leading-relaxed pt-3 receipt-divider ${
                         stage === 'DISPENSE' ? 'hidden sm:block' : ''
                       }`}
                     >

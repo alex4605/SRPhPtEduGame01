@@ -30,7 +30,7 @@ export const PrescriptionCard = memo(function PrescriptionCard({
         <div className="flex items-center gap-2.5 min-w-0">
           <FileText className="w-4 h-4 text-[var(--accent-primary)] shrink-0" aria-hidden="true" />
           <div className="min-w-0">
-            <h3 className="text-[15px] font-bold text-[var(--text-primary)] truncate">
+            <h3 className="text-[17px] font-bold text-[var(--text-primary)] truncate">
               處方箋 · {patientName}
             </h3>
             <p className="text-xs text-[var(--text-secondary)] truncate font-mono-num">
@@ -60,7 +60,7 @@ export const PrescriptionCard = memo(function PrescriptionCard({
             {items.map((item) => (
               <div key={item.targetDrugId} className="py-2.5 first:pt-0 last:pb-0">
                 <div className="flex items-baseline justify-between gap-2">
-                  <div className="font-bold text-[15px] text-[var(--text-primary)]">
+                  <div className="font-bold text-[17px] text-[var(--text-primary)]">
                     <span>{item.displayName}</span>
                     <span className="font-mono-num font-bold ml-1.5 text-[var(--accent-primary)]">
                       {item.strength}

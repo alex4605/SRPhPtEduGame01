@@ -94,7 +94,7 @@ export const Act5Consultation = memo(function Act5Consultation({
           >
             <div className="flex items-start justify-between gap-3">
               <div>
-                <div className="font-bold text-[15px] sm:text-base text-[var(--text-primary)]">
+                <div className="font-bold text-[17px] sm:text-base text-[var(--text-primary)]">
                   選項 A｜多問幾句、仔細提醒
                 </div>
                 <p className="mt-1 text-sm text-[var(--text-secondary)] leading-relaxed">
@@ -125,7 +125,7 @@ export const Act5Consultation = memo(function Act5Consultation({
           >
             <div className="flex items-start justify-between gap-3">
               <div>
-                <div className="font-bold text-[15px] sm:text-base text-[var(--text-primary)]">
+                <div className="font-bold text-[17px] sm:text-base text-[var(--text-primary)]">
                   選項 B｜簡單交代、快速送客
                 </div>
                 <p className="mt-1 text-sm text-[var(--text-secondary)] leading-relaxed">
@@ -339,7 +339,7 @@ export const Act5Consultation = memo(function Act5Consultation({
       <div className="rounded-xl border border-[var(--status-warn)]/35 bg-[#FEF9EC] px-4 py-3 flex items-start gap-2.5 text-sm text-[#78350F] leading-relaxed">
         <Scale className="w-4 h-4 text-[var(--status-warn)] shrink-0 mt-1" aria-hidden="true" />
         <p>
-          你心裡清楚：依法藥局不能用送贈品的方式拉客人領藥，要是被檢舉抓到，藥師可是會被送去「藥師懲戒委員會」處分的。
+          你心裡清楚：健保規定特約藥局不能用送贈品這類不當方式招徠病人領藥；而藥師本人若這麼做，依《藥師法》還可能被移付「藥師懲戒委員會」處分。
         </p>
       </div>
 
@@ -351,7 +351,7 @@ export const Act5Consultation = memo(function Act5Consultation({
         >
           <div className="flex items-start justify-between gap-3">
             <div>
-              <div className="font-bold text-[15px] sm:text-base text-[var(--text-primary)]">
+              <div className="font-bold text-[17px] sm:text-base text-[var(--text-primary)]">
                 選項 A｜照規定婉拒
               </div>
               <p className="mt-1 text-sm text-[var(--text-secondary)] leading-relaxed">
@@ -372,7 +372,7 @@ export const Act5Consultation = memo(function Act5Consultation({
         >
           <div className="flex items-start justify-between gap-3">
             <div>
-              <div className="font-bold text-[15px] sm:text-base text-[var(--text-primary)]">
+              <div className="font-bold text-[17px] sm:text-base text-[var(--text-primary)]">
                 選項 B｜自己貼錢送 20 元貼布
               </div>
               <p className="mt-1 text-sm text-[var(--text-secondary)] leading-relaxed">

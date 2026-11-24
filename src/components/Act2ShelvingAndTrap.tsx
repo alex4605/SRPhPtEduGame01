@@ -70,7 +70,7 @@ export const Act2ShelvingAndTrap = memo(function Act2ShelvingAndTrap({
         >
           <div className="flex items-start justify-between gap-2.5">
             <div>
-              <div className="font-bold text-[15px] sm:text-base text-[var(--text-primary)]">
+              <div className="font-bold text-[17px] sm:text-base text-[var(--text-primary)]">
                 選項 A｜認賠付運費，立刻叫貨
               </div>
               <p className="mt-1 text-sm text-[var(--text-secondary)] leading-relaxed">
@@ -93,7 +93,7 @@ export const Act2ShelvingAndTrap = memo(function Act2ShelvingAndTrap({
           >
             <div className="flex items-start justify-between gap-2.5">
               <div>
-                <div className="font-bold text-[15px] sm:text-base text-[var(--text-primary)]">
+                <div className="font-bold text-[17px] sm:text-base text-[var(--text-primary)]">
                   選項 B｜湊滿 {FREE_SHIPPING_THRESHOLD} 元免運
                 </div>
                 <p className="mt-1 text-sm text-[var(--text-secondary)] leading-relaxed">
@@ -172,7 +172,7 @@ export const Act2ShelvingAndTrap = memo(function Act2ShelvingAndTrap({
         >
           <div className="flex items-start justify-between gap-2.5">
             <div>
-              <div className="font-bold text-[15px] sm:text-base text-[var(--text-primary)]">
+              <div className="font-bold text-[17px] sm:text-base text-[var(--text-primary)]">
                 選項 C｜等兩三天湊單免運
               </div>
               <p className="mt-1 text-sm text-[var(--text-secondary)] leading-relaxed">
