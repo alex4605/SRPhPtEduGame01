@@ -71,7 +71,7 @@ function resolveActivePatient(
       ...base,
       dispenseSubtitle: '好壓降 160 mg 已開欠藥單，本次僅先拿好會降 10 mg（14 顆）',
       dispenseDialogue: '「沒關係啦，好壓降我明天再來領，今天先幫我拿好會降 10 mg 就好！」',
-      deliverDialogue: '本次僅先給好會降 10 mg（14 顆，好壓降 160 mg 欠藥明天補領）。要再確認一次嗎？',
+      deliverDialogue: '這次只先給好會降 10 mg（14 顆），好壓降 160 mg 已開欠藥單，明天補領。',
       items: base.items.filter((item) => item.targetDrugId !== NORMAL_SHORTAGE_DRUG_ID),
     };
   }
@@ -130,7 +130,7 @@ function resolveStageMeta(
       return {
         actNumber,
         title: `第 ${actNumber} 步 · 櫃檯給藥（第 ${patientIndex}/2 位）`,
-        subtitle: '倒數中，決定要不要跟客人當面再確認',
+        subtitle: '倒數中：要不要跟客人當面再確認一次？',
         speaker: '藥局櫃檯',
         dialogue: activePatient.deliverDialogue,
         portraitSrc: activePatient.portraitAsset,
@@ -152,7 +152,7 @@ function resolveStageMeta(
         title: '第 4 步 · 客人回來反映少藥（第 2/2 位）',
         subtitle: '十分鐘後，陳阿姨氣沖沖走回來',
         speaker: activePatient.patientName,
-        dialogue: '「你剛剛少給我一片藥啦！沒當面點清楚，現在你要補我！」',
+        dialogue: '「你剛剛少給我一排藥啦！沒當面點清楚，現在你要補給我！」',
         portraitSrc: activePatient.portraitAsset,
       };
     case 'CONSULT': {
@@ -300,8 +300,8 @@ export default function App() {
       {
         endingReason:
           mode === 'hard'
-            ? `配藥跟確認超過時間了！${activePatient.patientName}徹底失去耐性，甩手說了句「下次不來了！」轉身就走。鄰居一旦失去信任，抽屜裡拆封剩下的冷門藥也再也沒有人會回來領。`
-            : `配藥跟確認超過時間，${activePatient.patientName}在櫃檯前越等越焦慮，最後提早離開並對藥局留下不好的印象。速度跟細心之間的平衡，正是每位社區藥師每天面對的難題。`,
+            ? `配藥和確認超過了時間！${activePatient.shortName}失去耐性，丟下一句「下次不來了！」轉身就走。鄰居一旦失去信任，抽屜裡拆封剩下的冷門藥，也不會再有人來領了。`
+            : `配藥和確認超過了時間，${activePatient.shortName}在櫃檯前越等越焦急，最後先離開了，對藥局留下不好的印象。如何兼顧速度和細心，是每位社區藥師每天都要面對的難題。`,
       },
       { ...statsRef.current, affection: 0 }
     );
@@ -421,7 +421,7 @@ export default function App() {
           {
             normalOrderPlan: planId,
             endingReason:
-              '開門叫貨時把現金全拿去買藥了，收銀機一毛不剩，沒錢周轉只好關門。',
+              '開門叫貨時把現金全拿去進藥，收銀機一毛不剩，沒錢周轉只好關門。',
           },
           nextStats
         );
@@ -458,8 +458,8 @@ export default function App() {
             hardOrderChoice: choice,
             endingReason:
               choice === 'bulk'
-                ? '為了省 60 元運費硬湊 150 元免運，加上之前就壓了不少藥在架上，一下單現金瞬間歸零，小藥局沒錢周轉只好關門。'
-                : '之前剩下的現金已經見底，這筆叫貨費用一扣就付不出來，小藥局只好被迫關門。',
+                ? '為了省 60 元運費硬湊 150 元免運，加上架上本來就壓了不少藥，一下單現金就歸零，小藥局沒錢周轉只好關門。'
+                : '現金本來就所剩不多，這筆叫貨費用一扣就付不出來，小藥局只好關門。',
           },
           nextStats
         );
@@ -568,7 +568,7 @@ export default function App() {
         {
           patient2ComplainedMissingStrip: true,
           endingReason:
-            '給藥時沒有當面一起點清排數，陳阿姨回來反映少給一片時百口莫辯；自己貼錢補發一片扣掉 45 元後，收銀機現金見底，小藥局沒辦法周轉只好關門。',
+            '給藥時沒有當面一起點清排數，陳阿姨回來說少給一排，你百口莫辯，只好自己貼 45 元補發。收銀機現金見底，小藥局沒辦法周轉，只好關門。',
         },
         nextStats
       );
@@ -582,7 +582,7 @@ export default function App() {
         {
           patient2ComplainedMissingStrip: true,
           endingReason:
-            '給藥時沒有當面一起點清，陳阿姨氣沖沖跑回來大聲抱怨少給一片，旁邊等領藥的鄰居全都看在眼裡，大家對藥局失去信心，之後都改去別家領藥。',
+            '給藥時沒有當面一起點清，陳阿姨氣沖沖跑回來，大聲抱怨少給一排。旁邊等領藥的鄰居全看在眼裡，大家對藥局失去信心，之後都改去別家領藥。',
         },
         nextStats
       );
@@ -641,7 +641,7 @@ export default function App() {
           '1B',
           'normal',
           {
-            endingReason: `你一顆不差地拿對了所有藥，也替林阿姨擋下鈣片跟藥打架的風險，算起來比剛開店時多了 +${totalDiff} 元；但因為早上一次進太多貨，你現在手頭現金只剩 ${nextStats.money} 元，有 ${nextStats.capital} 元全變成架上的藥——接下來遇到臨時叫貨或突發花費，能應變的空間就不大了。`,
+            endingReason: `你一顆不差地拿對所有藥，也幫林阿姨避開鈣片影響吸收的風險，帳面上比剛開店時多了 +${totalDiff} 元。但早上一次進了太多貨，手頭現金只剩 ${nextStats.money} 元，另有 ${nextStats.capital} 元都變成了架上的藥。接下來如果要臨時叫貨或遇到突發花費，就很難應變了。`,
           },
           nextStats
         );
@@ -654,8 +654,8 @@ export default function App() {
           'normal',
           {
             endingReason: hadShortage
-              ? '你細心幫林阿姨擋下鈣片跟護甲寧 50 mcg 打架的風險；雖然早上選了小量備貨，讓王阿北的「好壓降 160 mg」剛好沒貨（開立欠藥單、好感 -5），你仍零失誤先配好「好會降 10 mg（14 顆）」並細心確認他的用藥習慣，阿北依然笑著向你道謝、約好明天再來補領！'
-              : '你在一堆長得很像的藥盒（好壓降 80／160 mg、護甲寧 50／100 mcg）與 10／14／15 顆排裝之間全部拿對，還主動幫林阿姨擋下鈣片跟藥打架的風險，也讓王阿北在確認沒同時吃中藥或其他西藥後安心禮貌道謝——你是讓人很放心的社區好藥師！',
+              ? '你細心幫林阿姨擋下鈣片影響護甲寧 50 mcg 吸收的風險。早上選了小量備貨，王阿北的「好壓降 160 mg」剛好缺貨，只好先開欠藥單；但你仍零失誤配好「好會降 10 mg（14 顆）」，也仔細確認了他的用藥習慣。阿北笑著向你道謝，約好明天再來補領。'
+              : '好壓降 80／160 mg、護甲寧 50／100 mcg，這些長得很像的藥盒，加上每排 10、14、15 顆不同的包裝，你全部拿對了。你還主動幫林阿姨擋下鈣片影響吸收的風險；王阿北確認沒有併用其他藥物後，也安心地向你道謝。你是讓人放心的社區好藥師！',
           },
           nextStats
         );
@@ -665,8 +665,8 @@ export default function App() {
           'normal',
           {
             endingReason: hadShortage
-              ? '你成功幫林阿姨擋下鈣片跟藥打架的風險，雖然王阿北的「好壓降 160 mg」缺貨先開欠藥單，你仍正確先發了「好會降 10 mg（14 顆）」讓他帶回家吃。'
-              : '你成功幫林阿姨擋下鈣片跟藥打架的風險，也一顆不差地拿對了王阿北的高劑量藥品。雖然最後趕時間沒有多聊幾句，兩位鄰居都順利領到今天的藥。',
+              ? '你幫林阿姨擋下了鈣片影響吸收的風險。王阿北的「好壓降 160 mg」雖然缺貨、先開了欠藥單，你仍正確地先給了「好會降 10 mg（14 顆）」讓他帶回家吃。'
+              : '你幫林阿姨擋下了鈣片影響吸收的風險，也一顆不差地拿對王阿北的高劑量藥品。雖然最後趕時間沒有多聊幾句，兩位鄰居都順利領到了今天的藥。',
           },
           nextStats
         );
@@ -696,7 +696,7 @@ export default function App() {
             {
               gavePatch: false,
               endingReason:
-                '前面等太久累積的怨氣加上照規定不能送贈品，阿北冷回一句「下次去隔壁領啦！」轉身就走。你看著抽屜裡特地幫他叫貨、剪剩的 2 顆「猛壓降 5/80」——徹底變成了沒人會再回來領的過期呆藥。',
+                '前面等太久的怨氣，加上照規定不能送贈品，阿北冷冷丟下一句「下次去隔壁領啦！」轉身就走。抽屜裡特地幫他叫貨、剪剩的 2 顆「猛壓降 5/80」，就這樣成了沒人會來領的呆藥。',
             },
             nextStats
           );
@@ -715,7 +715,7 @@ export default function App() {
           {
             gavePatch: true,
             endingReason:
-              '為了留住客人自己貼錢送出 20 元痠痛貼布後，收銀機現金歸零，連下一位客人跟今日房租電費都撐不到只好關門。',
+              '為了留住客人，你自己貼錢送出 20 元痠痛貼布，收銀機現金就此歸零。撐不到下一位客人和今日的房租電費，只好關門。',
           },
           nextStats
         );
@@ -739,10 +739,10 @@ export default function App() {
           'hard',
           {
             endingReason: flagsRef.current.patient2ComplainedMissingStrip
-              ? `給藥時沒當面點清，被迫貼錢補發一片（-45 元），打烊扣掉今日房租與電費分攤 ${HARD_FIXED_COST} 元後現金見底，小藥局只好關門。`
+              ? `給藥時沒當面點清，被迫貼錢補發一排（-45 元）。打烊再扣掉今日房租與電費 ${HARD_FIXED_COST} 元，現金見底，小藥局只好關門。`
               : flagsRef.current.hardOrderChoice === 'bulk'
-                ? `為了省 60 元運費硬湊 150 元免運，把太多現金卡在賣不掉的冷門商品裡，打烊扣掉今日房租與電費分攤 ${HARD_FIXED_COST} 元後手頭現金只剩 ${nextStats.money} 元、無力再叫常備藥周轉，只好關門。`
-                : `打烊扣掉今日房租與電費分攤 ${HARD_FIXED_COST} 元後現金徹底見底——太多錢都壓在藥架上了，小藥局周轉不過來只好關門。`,
+                ? `為了省 60 元運費硬湊 150 元免運，太多現金卡在賣不掉的冷門商品裡。打烊扣掉今日房租與電費 ${HARD_FIXED_COST} 元後，手頭只剩 ${nextStats.money} 元，沒錢再叫常備藥，只好關門。`
+                : `打烊扣掉今日房租與電費 ${HARD_FIXED_COST} 元後，現金徹底見底。太多錢都壓在藥架上，小藥局周轉不過來，只好關門。`,
           },
           nextStats
         );
@@ -759,14 +759,14 @@ export default function App() {
         const totalDiff = nextStats.money + nextStats.capital - (INITIAL_STATS.money + INITIAL_STATS.capital);
         const profitPrefix =
           totalDiff > 0
-            ? `你一顆不差地撐過了這一天，算上架上的藥甚至比剛開店時多了 +${totalDiff} 元；`
-            : '你一顆不差地拿對所有藥，也咬牙付清了今天的房租與電費；';
+            ? `你一顆不差地撐過了這一天，算上架上的藥，甚至比剛開店時多了 +${totalDiff} 元。`
+            : '你一顆不差地拿對所有藥，也咬牙付清了今天的房租與電費。';
 
         triggerEnding(
           '1B',
           'hard',
           {
-            endingReason: `${profitPrefix}但你現在手頭現金只剩 ${nextStats.money} 元（還有 ${nextStats.capital} 元全壓在藥架上）——明天只要再遇到臨時叫貨、運費或突發花費，小藥局能應變的空間就不大了。`,
+            endingReason: `${profitPrefix}但手頭現金只剩 ${nextStats.money} 元，另有 ${nextStats.capital} 元壓在藥架上。明天只要再遇到臨時叫貨、運費或突發花費，小藥局就很難應變了。`,
           },
           nextStats
         );
@@ -775,9 +775,9 @@ export default function App() {
 
       const endingSummary = didCounsel
         ? flagsRef.current.patient2ComplainedMissingStrip
-          ? `雖然沒當面點清被陳阿姨要求補一片（-45 元）、好心提醒吃藥還被嫌囉嗦回了一句「上面不是都有寫，不用講那麼多」，你依然咬牙扣完今日房租與電費分攤 ${HARD_FIXED_COST} 元，在各種現實壓力裡守住用藥安全撐過今天。`
-          : `你幫阿北抓出鈣片跟護甲寧 100 mcg 會打架、當面點清陳阿姨的藥避開少片誤會；就算熱心提醒吃藥只換來一句「上面不是都有寫，不用講那麼多」，依然穩穩扣完今日房租與電費分攤 ${HARD_FIXED_COST} 元——在現實夾縫中守住了社區藥師的專業！`
-        : `你一顆不差地拿對兩位客人的藥、擋下阿北的鈣片風險，並順利付完今日房租與電費分攤 ${HARD_FIXED_COST} 元，穩穩撐過這疲憊卻踏實的一天。`;
+          ? `沒當面點清，被陳阿姨要求補發一排（-45 元）；好心提醒吃藥，還被嫌囉嗦「上面不是都有寫」。但你仍咬牙付完今日房租與電費 ${HARD_FIXED_COST} 元，在現實壓力裡守住用藥安全，撐過了今天。`
+          : `你幫阿北抓出鈣片會影響護甲寧 100 mcg 的吸收，也當面和陳阿姨點清藥品，避開少給一排的誤會。就算熱心提醒只換來一句「上面不是都有寫」，你仍穩穩付完今日房租與電費 ${HARD_FIXED_COST} 元，在現實夾縫中守住了社區藥師的專業！`
+        : `你一顆不差地拿對兩位客人的藥，擋下阿北的鈣片風險，也順利付完今日房租與電費 ${HARD_FIXED_COST} 元，撐過了疲憊卻踏實的一天。`;
 
       triggerEnding('A', 'hard', { endingReason: endingSummary }, nextStats);
     },
@@ -962,7 +962,7 @@ export default function App() {
 
                     <div className="rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-paper)] p-4 space-y-2.5 text-sm text-[var(--text-primary)] leading-relaxed">
                       <p>
-                        你向王阿北致歉並立刻開立「欠藥單」約明天補領好壓降 160 mg。他眼神裡藏不住一絲失望，但仍努力維持禮貌、微笑著點頭道謝：
+                        你向王阿北道歉，立刻開了「欠藥單」，約好明天補領好壓降 160 mg。他有點失望，但仍微笑著點頭道謝：
                       </p>
                       <p className="font-medium text-[var(--accent-primary)]">
                         「沒關係啦藥師，知道你們小藥局備貨也不容易，謝謝你幫我叫貨！今天先幫我拿架上有的好會降 10 mg 就好，好壓降我明天再來領！」
@@ -1025,7 +1025,7 @@ export default function App() {
                           未當面核對 · 百口莫辯
                         </p>
                         <h3 className="mt-0.5 text-lg sm:text-xl font-bold text-[var(--text-primary)]">
-                          陳阿姨指控「少給她一片」！
+                          陳阿姨說你「少給她一排」！
                         </h3>
                       </div>
                       <AlertTriangle
@@ -1035,7 +1035,7 @@ export default function App() {
                     </div>
 
                     <div className="rounded-xl bg-[#FDF3F2] border border-[var(--status-danger)]/25 p-4 text-sm text-[#7F1D1D] leading-relaxed">
-                      給藥時沒按「當面再仔細核對一次」，死無對證只好自己貼錢補發一片（現金 -{HARD_MISSING_STRIP_PENALTY_MONEY}、好感 -{HARD_MISSING_STRIP_PENALTY_AFFECTION}）。
+                      給藥時沒有當面核對，說不清楚，只好自己貼錢補發一排（現金 -{HARD_MISSING_STRIP_PENALTY_MONEY}、好感 -{HARD_MISSING_STRIP_PENALTY_AFFECTION}）。
                     </div>
 
                     <button
@@ -1044,7 +1044,7 @@ export default function App() {
                       className="w-full min-h-[52px] px-4 sm:px-5 py-3 rounded-xl bg-[var(--status-danger)] hover:opacity-95 active:scale-[0.99] text-white text-sm sm:text-base font-bold text-center leading-snug transition-all flex items-center justify-center gap-2"
                     >
                       <span>
-                        貼錢補發一片（現金 -{HARD_MISSING_STRIP_PENALTY_MONEY} · 好感 -
+                        貼錢補發一排（現金 -{HARD_MISSING_STRIP_PENALTY_MONEY} · 好感 -
                         {HARD_MISSING_STRIP_PENALTY_AFFECTION}）
                       </span>
                       <ArrowRight className="w-4 h-4 shrink-0" aria-hidden="true" />

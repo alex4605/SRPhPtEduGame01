@@ -125,7 +125,7 @@ export const Act4Delivery = memo(function Act4Delivery({
             <div className="w-8 h-6 rounded-sm bg-[#D69E2E]/75" />
             <div className="animate-swipe-scan absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-transparent via-white/85 to-transparent" />
           </div>
-          <p className="text-base font-bold text-[var(--text-primary)]">刷健保卡給藥中...</p>
+          <p className="text-base font-bold text-[var(--text-primary)]">刷健保卡給藥中……</p>
         </div>
       )}
 
@@ -134,7 +134,7 @@ export const Act4Delivery = memo(function Act4Delivery({
           <div className="space-y-1">
             <p className="text-xs font-bold text-[var(--accent-primary)]">給藥前確認 · 倒數計時中</p>
             <h3 className="text-lg sm:text-xl font-bold text-[var(--text-primary)]">
-              要跟客人當面再對一次，還是直接刷卡？
+              要跟客人當面再對一次，還是直接刷健保卡？
             </h3>
           </div>
 
@@ -165,7 +165,7 @@ export const Act4Delivery = memo(function Act4Delivery({
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <div className="font-bold text-[17px] sm:text-base">
-                    選項 B｜直接刷卡給藥（淨利 +{netProfit}）
+                    選項 B｜直接刷健保卡給藥（淨利 +{netProfit}）
                   </div>
                   <p className="mt-1 text-sm text-white/85 leading-relaxed">
                     直接刷健保卡把藥交給客人，停止計時。
@@ -188,7 +188,7 @@ export const Act4Delivery = memo(function Act4Delivery({
                 <Clock className="w-4 h-4 text-[var(--accent-primary)] shrink-0" aria-hidden="true" />
               )}
               <h3 className="text-base font-bold text-[var(--text-primary)]">
-                {hadMismatch ? '發現拿錯，回藥櫃重新拿藥中...' : '當面核對藥品中...'}
+                {hadMismatch ? '發現拿錯，回藥櫃重新拿藥中……' : '當面核對藥品中……'}
               </h3>
             </div>
             <span
@@ -233,7 +233,7 @@ export const Act4Delivery = memo(function Act4Delivery({
                 <div className="rounded-xl border border-[var(--status-warn)]/40 bg-[#FEF9EC] p-3.5 text-sm">
                   <div className="font-bold text-[var(--status-warn)] mb-1">藥師</div>
                   <p className="text-[#78350F] leading-relaxed">
-                    「這個藥……稍等喔，我幫你重拿一下藥品！」
+                    「這個藥……稍等喔，我幫您重新拿一下！」
                   </p>
                   {detectedIssues.length > 0 && (
                     <p className="mt-1.5 font-mono-num text-xs text-[#92400E]">
@@ -291,7 +291,7 @@ export const Act4Delivery = memo(function Act4Delivery({
             className="w-full min-h-[52px] px-4 sm:px-5 py-3 rounded-xl bg-[var(--accent-primary)] hover:bg-[var(--accent-primary-hover)] active:scale-[0.99] text-white text-sm sm:text-base font-bold text-center leading-snug transition-all flex items-center justify-center gap-2"
           >
             <CreditCard className="w-4 h-4 shrink-0" aria-hidden="true" />
-            <span>確認無誤，刷卡給藥（淨利 +{netProfit}）</span>
+            <span>確認無誤，刷健保卡給藥（淨利 +{netProfit}）</span>
           </button>
         </div>
       )}

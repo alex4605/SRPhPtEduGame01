@@ -155,7 +155,7 @@ export const Act5Consultation = memo(function Act5Consultation({
           <div className="flex items-center gap-2">
             <Clock className="w-4 h-4 text-[var(--accent-primary)] shrink-0" aria-hidden="true" />
             <h3 className="text-base font-bold text-[var(--text-primary)]">
-              和客人聊聊吃藥習慣中...
+              和客人聊聊吃藥習慣中……
             </h3>
           </div>
           <span className="font-mono-num text-sm font-bold text-[var(--accent-primary)]">

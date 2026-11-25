@@ -55,7 +55,7 @@ export const MedicineBoxCard = memo(function MedicineBoxCard({
             {drug.name}
           </span>
           <span className="font-mono-num text-xs text-[#3D4B59] whitespace-nowrap shrink-0">
-            {outOfStock ? '缺貨中' : `${drug.packSize}顆/片`}
+            {outOfStock ? '缺貨中' : `${drug.packSize}顆/排`}
           </span>
         </div>
 
