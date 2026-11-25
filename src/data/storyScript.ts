@@ -247,6 +247,8 @@ export const PATIENTS_BY_MODE: Record<GameMode, readonly [PatientCase, PatientCa
     {
       patientIndex: 1,
       patientName: '林陳秀蘭 阿姨',
+      shortName: '林阿姨',
+      pronoun: '她',
       patientMeta: '第 1 位客人 · 慢性病處方箋',
       rxNumber: 'RX-0418',
       portraitAsset: GAME_ASSETS.patientWarm,
@@ -283,6 +285,8 @@ export const PATIENTS_BY_MODE: Record<GameMode, readonly [PatientCase, PatientCa
     {
       patientIndex: 2,
       patientName: '王明德 阿北',
+      shortName: '王阿北',
+      pronoun: '他',
       patientMeta: '第 2 位客人 · 附近熟客',
       rxNumber: 'RX-0419',
       portraitAsset: GAME_ASSETS.patient2Warm,
@@ -314,6 +318,8 @@ export const PATIENTS_BY_MODE: Record<GameMode, readonly [PatientCase, PatientCa
     {
       patientIndex: 1,
       patientName: '張國雄 阿北',
+      shortName: '張阿北',
+      pronoun: '他',
       patientMeta: '第 1 位客人 · 醫院處方箋',
       rxNumber: 'NHI-093',
       portraitAsset: GAME_ASSETS.uncleHard,
@@ -350,6 +356,8 @@ export const PATIENTS_BY_MODE: Record<GameMode, readonly [PatientCase, PatientCa
     {
       patientIndex: 2,
       patientName: '陳美鳳 阿姨',
+      shortName: '陳阿姨',
+      pronoun: '她',
       patientMeta: '第 2 位客人 · 趕時間領藥',
       rxNumber: 'NHI-094',
       portraitAsset: GAME_ASSETS.patient2Hard,
@@ -422,6 +430,11 @@ export const INTRO_STAGE_COPY = {
   },
 } as const;
 
+/** 結局 C（普通模式）：藥師自己發現錯誤、主動承擔，名字與代名詞依拿錯藥的客人而定 */
+export function buildNormalEndingCSummary(name: string, pronoun: '她' | '他'): string {
+  return `打烊前核對今天的處方時，你發現下午給${name}的藥拿錯了。你心一沉，立刻打電話過去。${name}已經吃了一顆，覺得有點頭暈。你請${pronoun}先別再吃，親自把正確的藥送到${pronoun}家，並陪${pronoun}聯絡醫師確認。所幸及時發現，沒有造成大礙。但掛上電話後，你在空蕩蕩的藥局裡坐了很久：${name}那麼信任你，你卻差點讓${pronoun}受傷。對藥師來說，「拿對藥」從來不是 99 分就可以，因為那一顆錯的藥，就落在一個真實的人身上。`;
+}
+
 export const ENDINGS: Record<EndingId, EndingDefinition> = {
   A: {
     id: 'A',
@@ -471,16 +484,16 @@ export const ENDINGS: Record<EndingId, EndingDefinition> = {
   C: {
     id: 'C',
     codeLabel: '結局 C · 拿錯藥了',
-    titleNormal: '無法重來的給藥失誤',
+    titleNormal: '一顆藥的重量',
     titleHard: '壓垮小藥局的醫療賠償',
     tone: 'critical',
     summaryNormal:
-      '你拿錯了長得太像的藥盒劑量，或是算錯了 10／14／15 顆一排的顆數，給藥前又沒停下來再看一眼。客人回家誤吃錯誤劑量後引發嚴重不適住院半個月，家屬隨即提告求償。然而比官司更折磨人的，是之後無數個睡不著的夜晚——你反覆想起櫃檯前那幾秒鐘，因為自己一時疏忽真的傷害了信任你的人，內心內疚不已、久久無法釋懷。',
+      buildNormalEndingCSummary('林阿姨', '她'),
     summaryHard:
       '在催促、虧損與疲勞的雙重壓力下，你終究看漏了藥盒上的劑量數字（像好壓降 80／160 mg、護甲寧 50／100 mcg），或是剪錯了 10／15 顆一排的顆數。客人誤服住院後引發醫療訴訟與巨額求償，讓小藥局面臨停業危機。比起賠償金額，腦海裡反覆浮現因為自己拿錯藥而傷害了一個人，那份沉重到喘不過氣的內疚久久揮之不去。',
-    knowledgeTitle: '藥局小知識｜為什麼領藥時常要多等幾分鐘？',
+    knowledgeTitle: '用藥小知識｜領藥一起核對，回家發現不一樣先別吃',
     knowledgeBody:
-      '台灣常見的慢性病用藥，常常同廠牌、盒子顏色幾乎一樣，但劑量差了整整兩倍（像是好壓降 80 mg 與 160 mg、護甲寧 50 mcg 與 100 mcg、好會降 5 mg 與 10 mg），一旦拿錯就可能讓人頭暈跌倒、心悸或血壓過低。加上醫師常開 14 天或 28 天份，偏偏藥廠包裝有 10 顆一排、14 顆一排、15 顆一排，藥師常常得一片片親手剪開細數。下次領藥時如果等得稍微久一點，其實藥師正在替您把關每一顆藥的安全！',
+      '領藥時可以跟藥師一起核對藥名和劑量；回家後如果發現藥的顏色、形狀跟平常不一樣，先別吃，打電話問藥局。',
     knowledgeSource: '台灣病人安全給藥錯誤防範整理',
   },
   D: {

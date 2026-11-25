@@ -12,6 +12,7 @@ import { PrescriptionCard } from './components/PrescriptionCard';
 import { TitleMenu } from './components/TitleMenu';
 import { TopHud } from './components/TopHud';
 import {
+  buildNormalEndingCSummary,
   DISPENSE_CAPITAL_COST,
   DISPENSING_TIME_LIMIT_BY_MODE,
   DRUG_CATALOG_BY_MODE,
@@ -525,6 +526,10 @@ export default function App() {
 
       if (errors.length > 0) {
         triggerEnding('C', mode, {
+          endingReason:
+            mode === 'normal'
+              ? buildNormalEndingCSummary(targetPatient.shortName, targetPatient.pronoun)
+              : undefined,
           inspectedInAct4: didDoubleCheck || flagsRef.current.inspectedInAct4,
           dispensingErrors: errors,
         });

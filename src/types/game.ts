@@ -62,6 +62,9 @@ export interface PrescriptionItem {
 export interface PatientCase {
   patientIndex: PatientIndex;
   patientName: string;
+  /** Short form used in narrative text, e.g. 林阿姨 */
+  shortName: string;
+  pronoun: '她' | '他';
   patientMeta: string;
   rxNumber: string;
   portraitAsset: string;
