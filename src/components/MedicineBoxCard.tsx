@@ -48,14 +48,14 @@ export const MedicineBoxCard = memo(function MedicineBoxCard({
       <div className={compact ? 'px-2.5 py-2' : 'p-3'}>
         <div className="flex items-start justify-between gap-1.5">
           <span
-            className={`text-[15px] font-bold leading-tight truncate ${
+            className={`text-[17px] font-bold leading-tight truncate ${
               outOfStock ? 'text-[#6B7280] line-through' : 'text-[#1B252F]'
             }`}
           >
             {drug.name}
           </span>
           <span className="font-mono-num text-xs text-[#3D4B59] whitespace-nowrap shrink-0">
-            {outOfStock ? '缺貨中' : `${drug.packSize}顆/片`}
+            {outOfStock ? '缺貨中' : `${drug.packSize}顆/排`}
           </span>
         </div>
 
@@ -67,7 +67,7 @@ export const MedicineBoxCard = memo(function MedicineBoxCard({
           style={outOfStock ? undefined : { backgroundColor: drug.bandAccent }}
         >
           <span
-            className={`font-mono-num text-sm sm:text-[15px] font-bold ${
+            className={`font-mono-num text-sm sm:text-[17px] font-bold ${
               outOfStock ? 'text-[#6B7280]' : 'text-[#161E28]'
             }`}
           >

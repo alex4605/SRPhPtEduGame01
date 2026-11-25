@@ -296,14 +296,14 @@ export const Act3Dispensing = memo(function Act3Dispensing({
                   onClick={() => openDrawer(drug.id)}
                   className="min-w-0 flex-1 text-left py-1 hover:opacity-80"
                 >
-                  <span className="text-[15px] font-bold text-[var(--text-primary)]">
+                  <span className="text-[17px] font-bold text-[var(--text-primary)]">
                     {drug.name}{' '}
                     <span className="font-mono-num text-[var(--accent-primary)]">
                       {drug.strength}
                     </span>
                   </span>
                   <span className="block text-xs text-[var(--text-secondary)] font-mono-num mt-0.5">
-                    {entry.packs} 排 ＋ 零剪 {entry.loose} 顆 = {total} 顆
+                    {entry.packs} 排 ＋ 剪 {entry.loose} 顆 = {total} 顆
                   </span>
                 </button>
                 <button
@@ -407,7 +407,7 @@ export const Act3Dispensing = memo(function Act3Dispensing({
                 {prescriptionItems.map((item) => (
                   <div
                     key={item.targetDrugId}
-                    className="inline-flex items-baseline gap-1.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-2.5 py-1 text-xs sm:text-[13px]"
+                    className="inline-flex items-baseline gap-1.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-2.5 py-1 text-xs sm:text-[15px]"
                   >
                     <span className="font-bold text-[var(--text-primary)]">
                       {item.displayName}{' '}
@@ -456,7 +456,7 @@ export const Act3Dispensing = memo(function Act3Dispensing({
               <div className="rounded-xl bg-[var(--bg-muted)]/70 border border-[var(--border-subtle)] p-3.5 space-y-2.5">
                 <div className="flex items-baseline justify-between gap-2">
                   <span className="text-xs sm:text-sm font-mono-num text-[var(--text-secondary)]">
-                    {draftEntry.packs} 排 ＋ 零剪 {draftEntry.loose} 顆
+                    {draftEntry.packs} 排 ＋ 剪 {draftEntry.loose} 顆
                   </span>
                   <div className="flex items-baseline gap-2.5">
                     {drawerTotal > 0 && (

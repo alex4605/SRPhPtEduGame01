@@ -2,5 +2,5 @@
   "name": "到你手上之前｜社區藥局生存戰",
   "description": "一款 2D 互動式社區藥局文字冒險與調劑模擬遊戲，透過溫馨衛教普通版與健保現實困難版，體驗藥品到你手上之前的專業把關與經營挑戰。",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": []
 }

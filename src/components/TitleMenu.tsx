@@ -96,7 +96,7 @@ export function TitleMenu({ almanac, onStartMode, onOpenAlmanac }: TitleMenuProp
                 </h1>
               </div>
 
-              <p className="text-[15px] text-[var(--text-secondary)] leading-relaxed">
+              <p className="text-[17px] text-[var(--text-secondary)] leading-relaxed">
                 走進台灣街角社區藥局的櫃檯後方當一天藥師，從開門叫貨、在長得很像的藥盒間細心數藥，到多問兩句替鄰居把關用藥安全。
               </p>
 
@@ -131,15 +131,15 @@ export function TitleMenu({ almanac, onStartMode, onOpenAlmanac }: TitleMenuProp
 
             {/* Primary Action Block (first on mobile so CTA sits in first viewport, bottom on desktop) */}
             <div className="order-1 lg:order-2 space-y-2.5 lg:pt-3 lg:border-t lg:border-[var(--border-subtle)]">
-              <div className="flex items-center justify-between gap-2 text-xs sm:text-sm">
-                <span className="font-medium text-[var(--accent-primary)] flex items-center gap-1.5">
+              <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1 text-xs sm:text-sm">
+                <span className="font-medium text-[var(--accent-primary)] flex items-center gap-1.5 whitespace-nowrap">
                   <ShieldCheck className="w-4 h-4 shrink-0" aria-hidden="true" />
                   <span>
                     普通模式 · 接待 2 位客人{hardUnlocked ? ' · 已破關' : ''}
                   </span>
                 </span>
                 <span className="text-xs text-[var(--text-secondary)] whitespace-nowrap">
-                  {hardUnlocked ? '困難模式已解鎖' : '破關解鎖困難模式'}
+                  {hardUnlocked ? '藥局幕後篇 (困難版) 已解鎖' : '破關解鎖藥局幕後篇 (困難版)'}
                 </span>
               </div>
 
@@ -159,7 +159,7 @@ export function TitleMenu({ almanac, onStartMode, onOpenAlmanac }: TitleMenuProp
                   className="w-full min-h-[48px] px-5 py-3 rounded-xl border border-[#D8B4AE] bg-[#FAF6F5] hover:bg-[#F5EBE9] active:scale-[0.99] text-[#B44535] text-sm sm:text-base font-bold transition-all flex items-center justify-center gap-2 whitespace-nowrap"
                 >
                   <Flame className="w-4 h-4 shrink-0" aria-hidden="true" />
-                  <span>直接挑戰困難模式</span>
+                  <span>直接挑戰藥局幕後篇 (困難版)</span>
                   <ArrowRight className="w-4 h-4 shrink-0" aria-hidden="true" />
                 </button>
               )}

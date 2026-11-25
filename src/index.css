@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+/* 候藥區長輩閱讀：整體字級比 Tailwind 預設放大一級（12→14、14→16、16→17px） */
+@theme {
+  --text-xs: 0.875rem;
+  --text-xs--line-height: 1.45;
+  --text-sm: 1rem;
+  --text-sm--line-height: 1.55;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.6;
+  --text-lg: 1.1875rem;
+  --text-xl: 1.3125rem;
+}
+
 @layer base {
   :root {
     --font-display: 'Noto Serif TC', Georgia, serif;

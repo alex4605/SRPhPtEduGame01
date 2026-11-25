@@ -78,7 +78,7 @@ export function EndingScreen({
           {/* Medicine Bag Top Header Strip */}
           <div className="px-4 sm:px-6 py-2.5 border-b border-[var(--border-subtle)] bg-[var(--bg-paper)] flex items-center justify-between gap-2">
             <span className={`text-xs sm:text-sm font-bold ${toneColor}`}>
-              {ending.codeLabel} · {mode === 'normal' ? '普通模式' : '困難模式'}
+              {ending.codeLabel} · {mode === 'normal' ? '普通模式' : '藥局幕後篇 (困難版)'}
             </span>
             <span className="text-xs font-mono-num text-[var(--text-secondary)]">
               到你手上之前 · 結算藥袋
@@ -108,7 +108,7 @@ export function EndingScreen({
                   )}
                 </div>
 
-                <p className="text-[15px] text-[var(--text-secondary)] leading-relaxed">
+                <p className="text-[17px] text-[var(--text-secondary)] leading-relaxed">
                   {flags.endingReason ?? summary}
                 </p>
 
@@ -249,7 +249,7 @@ export function EndingScreen({
                       ? `比剛開店時少了 ${Math.abs(totalDiff)} 元`
                       : '跟剛開店時打平'
                 }，但你現在手頭現金只剩 ${stats.money} 元，還有 ${stats.capital} 元壓在藥架上——遇到臨時叫貨、運費或意外支出時，能應變的空間就不大了。${
-                  clearedNormal ? '帶著偏少的現金進困難模式要特別小心！' : ''
+                  clearedNormal ? '帶著偏少的現金進入藥局幕後篇 (困難版) 要特別小心！' : ''
                 }`
               : mode === 'hard' && lostCapital
                 ? endingId === 'A'
@@ -260,7 +260,7 @@ export function EndingScreen({
                     ? `忙完一整天、一顆藥都沒拿錯，扣完單日房租與電費後總資本剛好打平、好感度落在 ${stats.affection}（相較開局${affectionDiffText}）——撐住社區藥局靠的從來不是暴利，而是日復一日的細心與堅持。`
                     : `忙完一整天、一顆藥都沒拿錯，扣完單日房租與電費後只${totalDiff <= 15 ? '微幅' : ''}多出 +${totalDiff} 元、好感度落在 ${stats.affection}（相較開局${affectionDiffText}）——撐住社區藥局靠的從來不是暴利，而是日復一日的細心與堅持。`
                   : clearedNormal
-                    ? `目前總資本比開局多了 +${totalDiff} 元，不過這還沒算進冷門藥、運費跟每日房租電費——接下來的困難模式才是真正考驗！`
+                    ? `目前總資本比開局多了 +${totalDiff} 元，不過這還沒算進冷門藥、運費跟每日房租電費——接下來的藥局幕後篇 (困難版) 才是真正考驗！`
                     : lostCapital
                       ? `扣除今天所有花費後，總資本比剛開局時少了 ${Math.abs(totalDiff)} 元。`
                       : totalDiff === 0
@@ -277,7 +277,7 @@ export function EndingScreen({
                 普通模式過關 · 帶著現在的現金、架上藥跟好感度繼續挑戰
               </p>
               <h2 className="text-lg sm:text-xl font-bold text-[#161E28]">
-                困難模式｜社區小藥局的真實考驗
+                藥局幕後篇 (困難版)｜社區小藥局的真實考驗
               </h2>
               <p className="text-sm text-[#435061] leading-relaxed">
                 將延續現金 <strong className="font-mono-num text-[#161E28]">{stats.money} 元</strong>、架上藥{' '}
@@ -292,7 +292,7 @@ export function EndingScreen({
               onClick={() => onSwitchMode('hard')}
               className="min-h-[52px] px-6 py-3 rounded-xl bg-[#B44535] hover:bg-[#943628] active:scale-[0.99] text-white text-base font-bold transition-all flex items-center justify-center gap-2 whitespace-nowrap shrink-0"
             >
-              <span>挑戰困難模式</span>
+              <span>挑戰藥局幕後篇 (困難版)</span>
               <ArrowRight className="w-4 h-4 shrink-0" aria-hidden="true" />
             </button>
           </section>
@@ -304,7 +304,7 @@ export function EndingScreen({
             <Info className="w-4 h-4 shrink-0" aria-hidden="true" />
             <h2 className="text-base sm:text-lg font-bold">{ending.knowledgeTitle}</h2>
           </div>
-          <p className="text-[15px] text-[var(--text-primary)]/90 leading-[1.75]">
+          <p className="text-[17px] text-[var(--text-primary)]/90 leading-[1.75]">
             {ending.knowledgeBody}
           </p>
           <p className="text-xs text-[var(--text-secondary)] pt-2.5 receipt-divider">
@@ -328,7 +328,7 @@ export function EndingScreen({
             }`}
           >
             <RotateCcw className="w-4 h-4 shrink-0" aria-hidden="true" />
-            <span>{mode === 'hard' ? '再挑戰困難模式' : '再玩一次'}</span>
+            <span>{mode === 'hard' ? '再挑戰藥局幕後篇 (困難版)' : '再玩一次'}</span>
           </button>
 
           {mode === 'hard' && (

@@ -92,7 +92,7 @@ export const TopHud = memo(function TopHud({
             </button>
             <div className="min-w-0 hidden md:block">
               <div className="text-xs font-bold text-[var(--text-primary)] whitespace-nowrap">
-                {mode === 'normal' ? '普通模式 · 早班' : '困難模式 · 雨天傍晚'}
+                {mode === 'normal' ? '普通模式 · 早班' : '藥局幕後篇 (困難版) · 雨天傍晚'}
               </div>
               <div className="text-xs text-[var(--text-secondary)] whitespace-nowrap">
                 第 {act}/{totalActs} 步{showPatientCount ? ` · 第 ${patientIndex}/2 位客人` : ''}
